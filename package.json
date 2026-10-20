@@ -1,0 +1,12 @@
+{
+  "name": "oshirase",
+  "version": "0.1.0",
+  "description": "Read Japanese city-hall letters in plain English or Chinese. Runs offline in the browser.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node serve.js",
+    "test": "node --test test/"
+  },
+  "engines": { "node": ">=18" }
+}

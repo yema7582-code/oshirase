@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oshirase · read letters from city hall</title>
+  <meta name="description" content="Paste a Japanese letter from city hall and see the deadline, the amount and what to do, in English or Chinese. Runs offline.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">知</span>
+      <div>
+        <h1>Oshirase <span class="jp">お知らせ</span></h1>
+        <p class="tagline" data-i18n="tagline"></p>
+      </div>
+    </div>
+    <button id="lang" class="ghost" type="button"></button>
+  </header>
+
+  <main>
+    <section class="input card">
+      <label for="letter" data-i18n="pasteLabel"></label>
+      <textarea id="letter" rows="9" lang="ja" spellcheck="false"></textarea>
+      <div class="row">
+        <span class="muted" data-i18n="tryOne"></span>
+        <span id="samples" class="chips"></span>
+      </div>
+      <div class="row end">
+        <button id="clear" class="ghost" type="button" data-i18n="clear"></button>
+        <button id="go" class="primary" type="button" data-i18n="read"></button>
+      </div>
+      <p class="privacy">🔒 <span data-i18n="privacy"></span></p>
+    </section>
+
+    <section id="result" hidden>
+      <div id="banner" class="banner" hidden></div>
+      <div class="card summary">
+        <p class="eyebrow" data-i18n="whatIsIt"></p>
+        <h2 id="kind"></h2>
+        <div class="facts">
+          <div class="fact" id="f-deadline">
+            <p class="eyebrow" data-i18n="deadline"></p>
+            <p class="big" id="deadline"></p>
+            <p class="sub" id="countdown"></p>
+          </div>
+          <div class="fact" id="f-amount">
+            <p class="eyebrow" data-i18n="amount"></p>
+            <p class="big" id="amount"></p>
+          </div>
+        </div>
+        <p class="eyebrow" data-i18n="todo"></p>
+        <p id="todo" class="todo"></p>
+        <button id="cal" class="primary" type="button" data-i18n="addCal"></button>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="c-bring">
+          <p class="eyebrow" data-i18n="bring"></p>
+          <ul id="bring" class="list"></ul>
+        </div>
+        <div class="card" id="c-contact">
+          <p class="eyebrow" data-i18n="contact"></p>
+          <div id="contact"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow" data-i18n="original"></p>
+        <p class="muted small" data-i18n="tapHint"></p>
+        <div id="annotated" class="annotated" lang="ja"></div>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow" data-i18n="words"></p>
+        <dl id="words" class="words"></dl>
+      </div>
+    </section>
+  </main>
+
+  <div id="pop" class="pop" role="dialog" hidden></div>
+
+  <footer>
+    <p>Rules-based, offline, open source (MIT). Always double-check with the office if something matters. <a href="https://github.com/yema7582-code/oshirase">Source</a></p>
+  </footer>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
